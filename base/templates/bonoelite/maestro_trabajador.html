@@ -1,0 +1,56 @@
+    {% extends 'bonoelite/bar_full.html' %}
+
+
+{% block body %}
+    </br>
+       <div class="row">
+        <div class="col-md-10 col-lg-10">
+            <h4>Tabla de Trabajadores</h4>
+        </div>
+        <div class="col-md-2 col-lg-2 text-right mt-1">
+            <button class="btn btn-success btn-block">Agregar</button>
+         </div>
+    </div>
+{% if listtrabajadores.count > 0 %}
+
+        <form id="formTrabajador" method="post">
+        {% csrf_token %}
+            <input type="hidden" name="id">
+        </form>
+   <div class="mt-4">
+            <h5 class="text-black mb-3">Total de Trabajadores:  {{ listtrabajadores.count }} </h5>
+            <table class="table table-hover" id="tbllista">
+                <thead>
+                    <th><b>CEDULA</b></th>
+                    <th><b>FICHA</b></th>
+                    <th><b>NOMBRE</b></th>
+                    <th><b>APELLIDO</b></th>
+                    <th><b>CARGO</b></th>
+                    <th><b>UNIDAD</b></th>
+                    <th class="btnaccion"></th>
+
+                </thead>
+
+                <tbody>
+                    {% for i in listtrabajadores   %}
+                    <tr data-id="{{ i.id }}">
+                        <td>{{ i.cedula }}</td>
+                        <td>{{ i.ficha }}</td>
+                        <td>{{ i.nombre }}</td>
+                        <td>{{ i.apellido }}</td>
+                        <td>{{ i.cargo }}</td>
+                        <td>{{ i.unidad }}</td>
+                        <td><center><a class="btn btn-sm btn-danger" href="delete/{{ i.id }}"><span class="glyphicon glyphicon-trash"></span>Borrar</a></center></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+    </br>
+    </br>
+    </br>
+           <h5 class="text-muted text-center" >Puede cargar los trabajadores ingresando al boton de agregar</h5>
+    {% endif %}
+
+{% endblock %}

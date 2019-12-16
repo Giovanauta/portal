@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bono Elite</title>
+    {% load static %}
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap4.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'vendors/iconfonts/mdi/css/materialdesignicons.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+        <a class="navbar-brand brand-logo" href="#">
+          <img src="{% static 'images/Logo.png' %}" alt="logo" />
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="#">
+          <img src="{% static 'images/logo-mini.svg' %}" alt="logo" />
+        </a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center">
+		<ul class="navbar-nav navbar-nav-right">
+				 <li class="nav-item dropdown d-none d-xl-inline-block">
+            <a class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-expanded="false">
+              <span class="profile-text"> {{user}} </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <a class="dropdown-item p-0">
+                <div class="d-flex border-bottom">
+                  <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                    <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
+                  </div>
+                  <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
+                    <i class="mdi mdi-account-outline mr-0 text-gray"></i>
+                  </div>
+                  <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                    <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
+                  </div>
+                </div>
+              </a>
+              <a class="dropdown-item" href="/logout">
+                Cerrar Session
+              </a>
+            </div>
+          </li>
+			 </ul>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <div class="nav-link">
+                <button class="btn btn-success btn-block">Evaluar
+                <i class="mdi mdi-plus"></i>
+              </button>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-content-copy"></i>
+              <span class="menu-title">Administrador</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="maestro_trabajador">Maestro de Trabajadores</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Maestro de Evaluacion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Maestro de Roles</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-restart"></i>
+              <span class="menu-title">Evaluacion</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="">Ver Resultados</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href=""> Modificar Evaluacion  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href=""> Borrar Evaluacion </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+         <div class="container" >
+           {% block body %}
+            {% endblock %}
+         </div>
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+       <!-- plugins:js -->
+        <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+
+</body>
